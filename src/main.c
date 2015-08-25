@@ -23,11 +23,26 @@ int main() {
 	
 	tok_Lexer l = tok_new_Lexer();
 	FILE* f = fopen("file", "rb");
-	/*unsigned int ids[] = {0xE01, 0xE02, 0xE03};
-	const char* labels[] = {"space", "num", "string"};*/
+	tok_TokenDef td;
+
 	assert(NULL != f);
 
 	tok_lexer_set_source(l,(tok_SourceFunc)fgetc,f);
+
+	td = tok_new_TokenDef();
+	tok_tokendef_set_id(td, 0xE01);
+	tok_tokendef_set_label(td, "SPACE");
+	tok_lexer_add_tokendef(l, td);
+
+	td = tok_new_TokenDef();
+	tok_tokendef_set_id(td, 0xE02);
+	tok_tokendef_set_label(td, "NUM");
+	tok_lexer_add_tokendef(l, td);
+
+	td = tok_new_TokenDef();
+	tok_tokendef_set_id(td, 0xE03);
+	tok_tokendef_set_label(td, "STRING");
+	tok_lexer_add_tokendef(l, td);
 
 	
 
