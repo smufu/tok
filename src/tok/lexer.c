@@ -80,11 +80,14 @@ tok_lexer_dump(tok_Lexer self) {
 	TokenDefList tdl;
 	OBJECT_CHECK(self);
 	tdl = self->tdl;
-	printf("BEGIN TOKENDEF:\n");
+	printf("BEGIN TOKENDEF:\n\n");
 	while(NULL != tdl) {
 		tok_tokendef_dump(tdl->td);
 		tdl = tdl->next;
+		if(NULL != tdl)
+			printf("------------\n");
 	}
+	printf("\n:END TOKENDEF\n");
 }
 void
 tok_lexer_begin(tok_Lexer self) {

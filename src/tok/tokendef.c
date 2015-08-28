@@ -38,3 +38,14 @@ tok_tokendef_dump(tok_TokenDef self) {
 	printf("ID:    %u\n", self->id);
 	printf("LABEL: %s\n", self->label);
 }
+void
+tok_tokendef_set_expr(tok_TokenDef self, tok_Expr expr) {
+	OBJECT_CHECK(self);
+	self->expr = expr;
+
+}
+void
+tok_tokendef_set_payload(tok_TokenDef self, void* payload) {
+	OBJECT_CHECK(self);
+	self->payload = payload;
+}

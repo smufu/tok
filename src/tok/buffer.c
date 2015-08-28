@@ -58,7 +58,7 @@ tok_buffer_push(tok_Buffer self, char c) {
 	self->write = (self->write + 1) % self->size;	
 }
 void
-tok_buffer_write(tok_Buffer self, char* wb, unsigned int size) {
+tok_buffer_write(tok_Buffer self, const char* wb, unsigned int size) {
 	unsigned int i=0;
 	for(;i<size;++i)
 		tok_buffer_push(self, wb[i]);
